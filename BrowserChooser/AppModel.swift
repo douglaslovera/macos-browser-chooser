@@ -36,6 +36,7 @@ final class AppModel: ObservableObject {
 
     func enqueue(_ url: URL) {
         queue.append(URLRequestItem(url: url))
+        Diagnostics.shared.info("Queued \(Diagnostics.shared.describe(url)); pending requests=\(queue.count)")
         showNextRequestIfNeeded()
     }
 
@@ -45,9 +46,11 @@ final class AppModel: ObservableObject {
 
     func choose(_ browser: BrowserApp) {
         guard let request = activeRequest else {
+            Diagnostics.shared.warning("Ignored browser selection because there is no active request")
             return
         }
 
+        Diagnostics.shared.info("Opening \(Diagnostics.shared.describe(request.url)) with \(browser.displayName) (\(browser.id))")
         let configuration = NSWorkspace.OpenConfiguration()
         NSWorkspace.shared.open([request.url], withApplicationAt: browser.appURL, configuration: configuration) { [weak self] _, error in
             Task { @MainActor in
@@ -56,8 +59,10 @@ final class AppModel: ObservableObject {
                 }
 
                 if let error {
+                    Diagnostics.shared.error("Browser open failed: \(error.localizedDescription)")
                     self.errorMessage = "Could not open \(request.url.absoluteString) in \(browser.displayName): \(error.localizedDescription)"
                 } else {
+                    Diagnostics.shared.info("Browser open succeeded")
                     self.finishActiveRequest()
                 }
             }
@@ -66,6 +71,7 @@ final class AppModel: ObservableObject {
 
     func refreshBrowsers() {
         discoveredBrowsers = discovery.discoverBrowsers()
+        Diagnostics.shared.info("Browser discovery returned \(discoveredBrowsers.count) apps")
         normalizePreferenceOrder()
         ensureSelectionIsVisible()
     }

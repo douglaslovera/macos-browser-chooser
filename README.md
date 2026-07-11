@@ -81,6 +81,7 @@ The Manage view lets you customize the picker:
 - `BrowserDiscovery.swift` finds installed apps that can open `http` and `https` URLs.
 - `ChooserWindow.swift` owns the floating macOS window.
 - `ChooserView.swift` renders the picker and browser management UI.
+- `Diagnostics.swift` records local lifecycle and link-handling diagnostics.
 - `PreferencesStore.swift` persists hidden browsers and browser order.
 - `Info.plist` declares URL and document handling metadata.
 
@@ -93,3 +94,11 @@ If a browser is missing from the picker, open Manage and click Refresh Browsers.
 If a browser is hidden, open Manage and turn its visibility toggle back on.
 
 If links still open directly in another browser, confirm that BrowserChooser is selected as the macOS default web browser.
+
+If BrowserChooser is running but no picker appears, inspect its local log:
+
+```sh
+open ~/Library/Logs/BrowserChooser/browserchooser.log
+```
+
+The log records app launches, incoming link hosts, window presentation, browser-open results, and unclean previous sessions. URL paths and query parameters are intentionally not recorded. Logs rotate after roughly 500 KB, with one previous log retained.

@@ -14,6 +14,7 @@
 		01A000192C2D000100000001 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000182C2D000100000001 /* PreferencesStore.swift */; };
 		01A0001B2C2D000100000001 /* ChooserWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0001A2C2D000100000001 /* ChooserWindow.swift */; };
 		01A0001D2C2D000100000001 /* ChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0001C2C2D000100000001 /* ChooserView.swift */; };
+		01A000222C2D000100000001 /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0001F2C2D000100000001 /* Diagnostics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		01A0001A2C2D000100000001 /* ChooserWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserWindow.swift; sourceTree = "<group>"; };
 		01A0001C2C2D000100000001 /* ChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserView.swift; sourceTree = "<group>"; };
 		01A0001E2C2D000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A0001F2C2D000100000001 /* Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				01A000182C2D000100000001 /* PreferencesStore.swift */,
 				01A0001A2C2D000100000001 /* ChooserWindow.swift */,
 				01A0001C2C2D000100000001 /* ChooserView.swift */,
+				01A0001F2C2D000100000001 /* Diagnostics.swift */,
 				01A0001E2C2D000100000001 /* Info.plist */,
 			);
 			path = BrowserChooser;
@@ -145,6 +148,7 @@
 				01A000192C2D000100000001 /* PreferencesStore.swift in Sources */,
 				01A0001B2C2D000100000001 /* ChooserWindow.swift in Sources */,
 				01A0001D2C2D000100000001 /* ChooserView.swift in Sources */,
+				01A000222C2D000100000001 /* Diagnostics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

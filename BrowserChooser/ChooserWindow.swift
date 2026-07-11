@@ -30,6 +30,7 @@ final class ChooserWindow {
         NSApp.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(nil)
         window.orderFrontRegardless()
+        Diagnostics.shared.info("Chooser visible=\(window.isVisible), key=\(window.isKeyWindow), frame=\(NSStringFromRect(window.frame))")
     }
 
     func close() {
